@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'myapp';
+  title = 'This is the way we data bundng in Angular';
+
+  handleEvent(){
+    console.log('Button Clicked', this.title);
+  }
 }
