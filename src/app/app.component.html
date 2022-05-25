@@ -1,14 +1,27 @@
-
-
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<h1>{{title}}</h1>
-<button (click)="handleEvent()">Click me</button>
-<input placeholder="hello" [(ngModel)]="title" (keydown)="handleEvent()"/>
-<input placeholder="hello" [ngModel]="title" (keydown)="handleEvent()"/>
-<!-- <router-outlet></router-outlet> -->
+<div class="m-3">
+    <h3>{{title | uppercase}}</h3>
+    <h3>{{jsonValue | json}}</h3>
+    <h3>{{newDate | date:'medium' }}</h3>
+    <h3>{{newDate | date:'M:d:H' }}</h3>
+    <h4>Two way data binding</h4>
+    <div>
+        <button type="button" class="btn btn-primary form-control w-25"  (click)="handleEvent()">Click me</button>
+        <input class="form-control w-25"  placeholder="hello" [(ngModel)]="title" (keydown)="handleEvent()"/>
+    </div>
+    
+    <h4>One way data binding</h4>
+    <div>
+        <input class="form-control w-25" placeholder="hello" [ngModel]="title" (keydown)="handleEvent()"/>
+    </div>
+    
+    <h1>{{title | truncate}} </h1>
+    
+    <input placeholder="user" [(ngModel)]="userObject.name"/>
+    <input placeholder="user" [(ngModel)]="userObject.age"/>
+    <input placeholder="user" [(ngModel)]="userObject.id"/>
+    
+    <app-user [user]="userObject" (userEvent)="handleEvent2($event)"></app-user>
+    
+    <!-- <router-outlet></router-outlet> -->
+    
+</div>
