@@ -19,8 +19,19 @@
     <input placeholder="user" [(ngModel)]="userObject.name"/>
     <input placeholder="user" [(ngModel)]="userObject.age"/>
     <input placeholder="user" [(ngModel)]="userObject.id"/>
+
+    <ng-container *ngIf="showUser">
+        <app-user [user]="userObject" (userEvent)="handleEvent2($event)"></app-user>
+    </ng-container>
     
-    <app-user [user]="userObject" (userEvent)="handleEvent2($event)"></app-user>
+    <ul *ngFor="let item of (posts | async); let i = index" >
+        <li>{{i}}</li>
+        <li>{{item.id}}</li>    
+        <li>{{item.title}}</li>    
+        <li>{{item.body}}</li>    
+    
+    </ul>
+   
     
     <!-- <router-outlet></router-outlet> -->
     
